@@ -1,6 +1,36 @@
 <?php
+/**
+* de_creaclase_ajax
+*
+* modifica la base de datos insetando nuevos registros en la tabla de clases  
+* 
+* @package    	TReCC(tm) redsustentable.
+* @subpackage 	
+* @author     	TReCC SA
+* @author     	<mario@trecc.com.ar> <trecc@trecc.com.ar>
+* @author    	www.trecc.com.ar  
+* @copyright	2015 TReCC SA
+* @license    	https://www.gnu.org/licenses/agpl-3.0.html  GNU AFFERO GENERAL PUBLIC LICENSE
+* Este archivo es parte de TReCC(tm) paneldecontrol y de sus proyectos hermanos: baseobra(tm) y TReCC(tm) intraTReCC.
+* Este archivo es software libre: tu puedes redistriburlo 
+* y/o modificarlo bajo los términos de la "AGNU Affero AGeneral Public License" 
+* publicada por la Free Software Foundation, version 3
+* 
+* Este archivo es distribuido por si mismo y dentro de sus proyectos 
+* con el objetivo de ser útil, eficiente, predecible y transparente
+* pero SIN NIGUNA GARANTÍA; sin siquiera la garantía implícita de
+* CAPACIDAD DE MERCANTILIZACIÓN o utilidad para un propósito particular.
+* Consulte la "GNU AFFERO GENERAL PUBLIC LICENSE" para más detalles.
+* 
+* Si usted no cuenta con una copia de dicha licencia puede encontrarla aquí: <https://www.gnu.org/licenses/agpl-3.0.html>.
+*/
+
 include ('./includes/encabezado.php');	
 $Base=$_SESSION['AppSettings']->DATABASE_NAME;
+
+foreach($_POST as $k => $v){
+	$_POST[$k]=utf8_decode($v);
+}
 
 $Log=array();
 function terminar($Log){
@@ -39,6 +69,7 @@ while($row=mysql_fetch_assoc($cons)){
 	if($n1==$n2){
 		$Log['res']='exito';
 		$Log['alerta']='El nombre ya estaba utilizado, se asigna a la clase existente: '.$row['nombre'];
+		$Log['data']['nombre']=utf8_encode($row['nombre']);
 		$Log['data']['nid']=0;
 		$Log['data']['eid']=$row['id'];
 		terminar($Log);			
@@ -69,6 +100,7 @@ if(mysql_insert_id($Conec1)<1){
 }
 
 $Log['res']='exito';
+$Log['data']['nomre']=utf8_encode($_POST['nombre']);
 $Log['data']['nid']=mysql_insert_id($Conec1);
 terminar($Log);	
 

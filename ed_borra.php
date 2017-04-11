@@ -1,30 +1,29 @@
 <?php
 /**
-* borra.php
-* elimina o envia a la papelera registros de tablas
+* ed_borra.php
+*
+* modifica la base de datos eliminando  o enviando a papelera los registros solicitados por POST
 * 
-* @package    	TReCC(tm) paneldecontrol.
+* @package    	TReCC(tm) redsustentable.
 * @subpackage 	
 * @author     	TReCC SA
 * @author     	<mario@trecc.com.ar> <trecc@trecc.com.ar>
 * @author    	www.trecc.com.ar  
-* @copyright	2010 2014 TReCC SA
-* @license    	http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 (GPL-3.0)
-* trabajo derivado de agrega_f.php copyright: 2010 TReCC SA (GPL-3.0)
+* @copyright	2015 TReCC SA
+* @license    	https://www.gnu.org/licenses/agpl-3.0.html  GNU AFFERO GENERAL PUBLIC LICENSE
 * Este archivo es parte de TReCC(tm) paneldecontrol y de sus proyectos hermanos: baseobra(tm) y TReCC(tm) intraTReCC.
 * Este archivo es software libre: tu puedes redistriburlo 
-* y/o modificarlo bajo los términos de la "GNU General Public License" 
+* y/o modificarlo bajo los términos de la "AGNU Affero AGeneral Public License" 
 * publicada por la Free Software Foundation, version 3
 * 
 * Este archivo es distribuido por si mismo y dentro de sus proyectos 
 * con el objetivo de ser útil, eficiente, predecible y transparente
 * pero SIN NIGUNA GARANTÍA; sin siquiera la garantía implícita de
 * CAPACIDAD DE MERCANTILIZACIÓN o utilidad para un propósito particular.
-* Consulte la "GNU General Public License" para más detalles.
+* Consulte la "GNU AFFERO GENERAL PUBLIC LICENSE" para más detalles.
 * 
-* Si usted no cuenta con una copia de dicha licencia puede encontrarla aquí: <http://www.gnu.org/licenses/>.
+* Si usted no cuenta con una copia de dicha licencia puede encontrarla aquí: <https://www.gnu.org/licenses/agpl-3.0.html>.
 */
-
 
 include("../includes/mensajesdesarrollo.php");// carga sistema de mensajes de desarrollo
 include ('./includes/encabezado.php');	

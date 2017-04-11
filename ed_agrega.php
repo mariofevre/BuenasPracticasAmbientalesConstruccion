@@ -3,32 +3,26 @@
 * ed_agrega.php
 *
 * aplicación para generar registros genéricos
- * 
- *  
-* @package    	Plataforma Colectiva de Información Territorial: UBATIC2014
-* @subpackage 	actividad
-* @author     	Universidad de Buenos Aires
-* @author     	<mario@trecc.com.ar>
-* @author    	http://www.uba.ar/
-* @author    	http://www.trecc.com.ar/recursos/proyectoubatic2014.htm
-* @author		based on TReCC SA Procesos Participativos Urbanos, development. www.trecc.com.ar/recursos
-* @copyright	2015 Universidad de Buenos Aires
-* @copyright	esta aplicación se desarrollo sobre una publicación GNU 2014 TReCC SA
-* @license    	http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 (GPL-3.0)
-* Este archivo es parte de TReCC(tm) paneldecontrol y de sus proyectos hermanos: baseobra(tm), TReCC(tm) intraTReCC  y TReCC(tm) Procesos Participativos Urbanos.
+* 
+* @package    	TReCC(tm) redsustentable.
+* @subpackage 	
+* @author     	TReCC SA
+* @author     	<mario@trecc.com.ar> <trecc@trecc.com.ar>
+* @author    	www.trecc.com.ar  
+* @copyright	2015 TReCC SA
+* @license    	https://www.gnu.org/licenses/agpl-3.0.html  GNU AFFERO GENERAL PUBLIC LICENSE
+* Este archivo es parte de TReCC(tm) paneldecontrol y de sus proyectos hermanos: baseobra(tm) y TReCC(tm) intraTReCC.
 * Este archivo es software libre: tu puedes redistriburlo 
-* y/o modificarlo bajo los términos de la "GNU General Public License" 
+* y/o modificarlo bajo los términos de la "AGNU Affero AGeneral Public License" 
 * publicada por la Free Software Foundation, version 3
 * 
 * Este archivo es distribuido por si mismo y dentro de sus proyectos 
 * con el objetivo de ser útil, eficiente, predecible y transparente
-* pero SIN NINGUNA GARANTÍA; sin siquiera la garantía implícita de
+* pero SIN NIGUNA GARANTÍA; sin siquiera la garantía implícita de
 * CAPACIDAD DE MERCANTILIZACIÓN o utilidad para un propósito particular.
-* Consulte la "GNU General Public License" para más detalles.
+* Consulte la "GNU AFFERO GENERAL PUBLIC LICENSE" para más detalles.
 * 
-* Si usted no cuenta con una copia de dicha licencia puede encontrarla aquí: <http://www.gnu.org/licenses/>.
-* 
-*
+* Si usted no cuenta con una copia de dicha licencia puede encontrarla aquí: <https://www.gnu.org/licenses/agpl-3.0.html>.
 */
 include('./includes/encabezado.php');
 include('./cons_general.php');

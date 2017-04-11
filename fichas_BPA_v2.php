@@ -1,8 +1,8 @@
 <?php
 /**
-* fichas_BPA.php
+* fichas_BPA_v2.php
 *
-* genera fichas para la visualización de buenas prácticas a partir de informacón consultada a la lbase de datos.  
+* genera fichas de visualización de BPA.  
 * 
 * @package    	TReCC(tm) redsustentable.
 * @subpackage 	
@@ -34,7 +34,7 @@ include('./cons_general.php');
 	   <link href="./img/pdfajpg.ico" type="image/x-icon" rel="shortcut icon">
 	   <link rel="stylesheet" type="text/css" href="./css/panelbase.css" />
 	   <link rel="stylesheet" type="text/css" href="./css/indice_fuentes.css" />
-	   <link rel="stylesheet" type="text/css" href="./css/fichas_BPA.css" />          
+	   <link rel="stylesheet" type="text/css" href="./css/fichas_BPA_v2.css" />          
 	<style>
 					
 	</style>
@@ -53,62 +53,85 @@ $Areas=$Result['Areas'];
 $Ambitos=$Result['Ambitos'];
 $Acciones=$Result['Acciones'];
 
-	echo "<div id='indiceBPAs'></div>";	
+	echo "<div id='indiceBPAs' class='ficha'><h1>Índice de Fichas</h1></div>";	
 	
 	echo "
 	<div class='ficha' id='fmodelo'>
-		<div class='columna' id='columna1'>
-			<div id='id-nombre'>
+		<div id='id-nombre'>
 				<div id='id'>-sin datos-</div>
+				<div id='categoria'>-sin datos-</div>
 				<div id='nombre'>-sin datos-</div>
-			</div>
+		</div>
+		<div id='descripcion'>-sin datos-</div>
+		
+		
+		<div class='bloque' id='bloque1'>
+			<div class='columna' id='columna1'>
 			
-			<div id='descripcion'>-sin datos-</div>
+				<div class='aclara'>Esta Buena Práctica se recomienda:</div>
+				<div id='tags'>
+					
+					<div id='escalas'>
+						<img src='./img/tag_escala.png'>
+						<div class='titulito'>
+							para escalas:
+						</div>
+					</div><div id='fases'>
+						<img src='./img/tag_fase.png'>
+						<div class='titulito'>
+							para fases:
+						</div>
+					</div><div id='medios'>
+						<img src='./img/tag_medio.png'>
+						<div class='titulito'>
+							para medios:
+						</div>
+					</div><div id='tipos'>
+						<img src='./img/tag_tipologia.png'>
+						<div class='titulito'>
+							para tipologías:
+						</div>
+					</div>		
+				</div>
+				
+			</div><div class='columna' id='columna2'>
+
+	
+				<div id='proced-rec'>
+					<div class='aclara'>Procedimiento recomendado:</div>
+					<div id='procedimiento'></div>				
+				</div>
 			
-			<div id='proced-rec'>
-				<div class='aclara'>Procedimiento recomendado:</div>
-				<div id='procedimiento'></div>				
-			</div>
 			
-			<div id='cuadro'>	
-			</div>
-			
+		</div>	
+
+		<div class='bloque' id='bloque2'>
+			<div class='columna' id='columna1'>
+				
+				<div id='recursog'>
+					<div class='aclara'>Previsión de Recursos recomendada:</div>
+					<div id='recursos'>
+					</div>
+				</div>			
+			</div><div class='columna' id='columna2'>
+				<div id='fuenteg'>
+					<div class='aclara'>Para más información sobre esta buena práctica recomendamos:</div>
+					<p id='fuente'>-sin datos-</p>					
+				</div>		
+			</div>	
 		</div>
 		
-		<div class='columna' id='columnaM'></div>
-		
-		<div class='columna' id='columna2'>
-		<div class='aclara'>Esta Buena Práctica se recomienda:</div>
-			<div id='tags'>
 				
-				<div id='escalas'>
-					<div class='titulito'>
-						para escalas:
-					</div>
-				</div><div id='fases'>
-					<div class='titulito'>
-						para fases:
-					</div>
-				</div><div id='medios'>
-					<div class='titulito'>
-						para medios:
-					</div>
-				</div><div id='tipos'>
-					<div class='titulito'>
-						para tipologías:
-					</div>
-				</div>		
-			</div>
-			
-			<div id='recursos'><div class='aclara'>Previsión de Recursos recomendada:</div></div>
-			
-			<div class='aclara'>Para más información sobre esta buena práctica recomendamos:</div>
-			<div id='fuente'>-sin datos-</div>
-			<div id='tapa'></div>
-			<div id='pagina'></div>
-			<div id='transcripcion'>x</div>
-			
-		</div>				
+		<div class='bloque' id='bloque3'>
+			<div class='columna' id='columna1'>
+				
+				<div id='cuadro'>
+				</div>
+								
+			</div><div class='columna' id='columna2'>
+				<div id='transcripcion'>x</div>				
+			</div>			
+		</div>
 	</div>
 	";
 ?>
@@ -126,11 +149,14 @@ $Acciones=$Result['Acciones'];
    
        
 		function checkVariable() {
-		   if(_ClasesCargadas=='si'){
-		     cargarBPAsFicha(); 
-		   }
+			console.log('checando');
+			   if(_ClasesCargadas=='si'){
+			   	clearInterval(myVar);
+			     cargarBPAsFicha(); 
+			   }
 		}
-		setTimeout(checkVariable,200);
+		var myVar = setInterval(checkVariable,200);
+		
 	
     	function enviarFormulario(_this){             		
          		var _Acc=_this.getAttribute('value');

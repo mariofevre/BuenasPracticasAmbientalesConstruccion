@@ -1,4 +1,31 @@
 <?php
+/**
+* ed_BPA_ajax.php
+*
+* modifica la base de datos, alterando los datos de las Buenas Prácticas Ambientales.  
+* 
+* @package    	TReCC(tm) redsustentable.
+* @subpackage 	
+* @author     	TReCC SA
+* @author     	<mario@trecc.com.ar> <trecc@trecc.com.ar>
+* @author    	www.trecc.com.ar  
+* @copyright	2015 TReCC SA
+* @license    	https://www.gnu.org/licenses/agpl-3.0.html  GNU AFFERO GENERAL PUBLIC LICENSE
+* Este archivo es parte de TReCC(tm) paneldecontrol y de sus proyectos hermanos: baseobra(tm) y TReCC(tm) intraTReCC.
+* Este archivo es software libre: tu puedes redistriburlo 
+* y/o modificarlo bajo los términos de la "AGNU Affero AGeneral Public License" 
+* publicada por la Free Software Foundation, version 3
+* 
+* Este archivo es distribuido por si mismo y dentro de sus proyectos 
+* con el objetivo de ser útil, eficiente, predecible y transparente
+* pero SIN NIGUNA GARANTÍA; sin siquiera la garantía implícita de
+* CAPACIDAD DE MERCANTILIZACIÓN o utilidad para un propósito particular.
+* Consulte la "GNU AFFERO GENERAL PUBLIC LICENSE" para más detalles.
+* 
+* Si usted no cuenta con una copia de dicha licencia puede encontrarla aquí: <https://www.gnu.org/licenses/agpl-3.0.html>.
+*/
+
+
 include ('./includes/encabezado.php');	
 $Base=$_SESSION['AppSettings']->DATABASE_NAME;
 
@@ -23,7 +50,7 @@ if(!isset($_POST['accion'])){
 }
 
 
-$campos=array('nombre','descripcion','fuente','entidad','fecha','id_p_FUfuentes','copia','observaciones','fuentepags','valoracion','id_p_PROestrategias','procedimiento','recursos');
+$campos=array('nombre','descripcion','fuente','entidad','fecha','id_p_FUfuentes','copia','observaciones','fuentepags','valoracion','id_p_PROestrategias','procedimiento','recorte','recursos');
 
 foreach($campos as $c){
 	if($_POST[$c]!=''){
@@ -34,7 +61,6 @@ foreach($campos as $c){
 	}
 }
 $sets=substr($sets,0,-2);
-
 
 
 
@@ -94,8 +120,6 @@ if($_POST['accion']=='cambiar'){
 	terminar($Log);	
 	
 }
-
-
 
 
 if($_POST['accion']=='eliminar'||$_POST['accion']=='confirmar'){

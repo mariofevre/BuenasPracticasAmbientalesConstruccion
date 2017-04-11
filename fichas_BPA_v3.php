@@ -1,8 +1,8 @@
 <?php
 /**
-* fichas_BPA.php
+* fichas_BPA_v3.php
 *
-* genera fichas para la visualización de buenas prácticas a partir de informacón consultada a la lbase de datos.  
+* genera fichas a partir de la consulta en la base de datos  
 * 
 * @package    	TReCC(tm) redsustentable.
 * @subpackage 	
@@ -24,6 +24,7 @@
 * 
 * Si usted no cuenta con una copia de dicha licencia puede encontrarla aquí: <https://www.gnu.org/licenses/agpl-3.0.html>.
 */
+
 include('./includes/encabezado.php');
 include('./cons_general.php');
 ?>
@@ -31,12 +32,14 @@ include('./cons_general.php');
 <head>
 	 
 	   <title>RED SUSTENTABLE DE LA CONSTRUCCIÓN</title>
-	   <link href="./img/pdfajpg.ico" type="image/x-icon" rel="shortcut icon">
-	   <link rel="stylesheet" type="text/css" href="./css/panelbase.css" />
-	   <link rel="stylesheet" type="text/css" href="./css/indice_fuentes.css" />
-	   <link rel="stylesheet" type="text/css" href="./css/fichas_BPA.css" />          
+	   <link href="./img/pdfajpg.ico" type="image/x-icon" rel="shortcut icon">         
 	<style>
-					
+				 #fmodelo{
+				 	display:none;
+				 }	
+				 #indiceBPAs a{
+				 	display:block;
+				 }
 	</style>
 	
 </head>
@@ -53,62 +56,53 @@ $Areas=$Result['Areas'];
 $Ambitos=$Result['Ambitos'];
 $Acciones=$Result['Acciones'];
 
-	echo "<div id='indiceBPAs'></div>";	
+	echo "<div id='indiceBPAs' class='ficha'><h1>Índice de Fichas</h1></div>";	
 	
 	echo "
 	<div class='ficha' id='fmodelo'>
-		<div class='columna' id='columna1'>
-			<div id='id-nombre'>
-				<div id='id'>-sin datos-</div>
-				<div id='nombre'>-sin datos-</div>
-			</div>
+		<header id='id'>-sin datos-</header>
+		
+		<h1 id='nombre'>-sin datos-</h1>
+		<h2 id='categoria'>-sin datos-</h2>
+		
+		
+		<p id='descripcion'>-sin datos-</p>
 			
-			<div id='descripcion'>-sin datos-</div>
-			
-			<div id='proced-rec'>
-				<div class='aclara'>Procedimiento recomendado:</div>
-				<div id='procedimiento'></div>				
-			</div>
-			
-			<div id='cuadro'>	
-			</div>
-			
+		<h3 class='aclara'>Esta Buena Práctica se recomienda:</h3>
+
+		<div id='tags'>
+			<div id='escalas'>
+				<h4 class='titulito'>
+					para escalas:
+				</h4>
+			</div><div id='fases'>
+				
+				<h4 class='titulito'>
+					para fases:
+				</h4>
+			</div><div id='medios'>
+				<h4 class='titulito'>
+					para medios:
+				</h4>
+			</div><div id='tipos'>
+				<h4 class='titulito'>
+					para tipologías:
+				</h4>
+			</div>		
 		</div>
 		
-		<div class='columna' id='columnaM'></div>
+		<h3 class='aclara'>Procedimiento recomendado:</h3>
+		<p id='procedimiento'></p>				
 		
-		<div class='columna' id='columna2'>
-		<div class='aclara'>Esta Buena Práctica se recomienda:</div>
-			<div id='tags'>
-				
-				<div id='escalas'>
-					<div class='titulito'>
-						para escalas:
-					</div>
-				</div><div id='fases'>
-					<div class='titulito'>
-						para fases:
-					</div>
-				</div><div id='medios'>
-					<div class='titulito'>
-						para medios:
-					</div>
-				</div><div id='tipos'>
-					<div class='titulito'>
-						para tipologías:
-					</div>
-				</div>		
-			</div>
-			
-			<div id='recursos'><div class='aclara'>Previsión de Recursos recomendada:</div></div>
-			
-			<div class='aclara'>Para más información sobre esta buena práctica recomendamos:</div>
-			<div id='fuente'>-sin datos-</div>
-			<div id='tapa'></div>
-			<div id='pagina'></div>
-			<div id='transcripcion'>x</div>
-			
-		</div>				
+		<h3 class='aclara'>Previsión de Recursos recomendada:</h3>
+		<div id='recursos'></div>
+		
+		<h3 class='aclara'>Para más información sobre esta buena práctica recomendamos:</h3>
+		<p id='fuente'>-sin datos-</p>					
+		<div id='transcripcion'>x</div>
+						
+		<div id='cuadro'></div>
+								
 	</div>
 	";
 ?>
@@ -126,11 +120,14 @@ $Acciones=$Result['Acciones'];
    
        
 		function checkVariable() {
-		   if(_ClasesCargadas=='si'){
-		     cargarBPAsFicha(); 
-		   }
+			console.log('checando');
+			   if(_ClasesCargadas=='si'){
+			   	clearInterval(myVar);
+			     cargarBPAsFicha_v3(); 
+			   }
 		}
-		setTimeout(checkVariable,200);
+		var myVar = setInterval(checkVariable,200);
+		
 	
     	function enviarFormulario(_this){             		
          		var _Acc=_this.getAttribute('value');

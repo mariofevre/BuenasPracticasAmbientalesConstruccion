@@ -4,27 +4,28 @@
 *
 * reliza consultas a la base de datos  
 * 
+* 
 * @package    	TReCC(tm) redsustentable.
 * @subpackage 	
 * @author     	TReCC SA
 * @author     	<mario@trecc.com.ar> <trecc@trecc.com.ar>
 * @author    	www.trecc.com.ar  
 * @copyright	2015 TReCC SA
-* @license    	http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 (GPL-3.0)
-* trabajo derivado de agrega_f.php copyright: 2010 TReCC SA (GPL-3.0)
+* @license    	https://www.gnu.org/licenses/agpl-3.0.html  GNU AFFERO GENERAL PUBLIC LICENSE
 * Este archivo es parte de TReCC(tm) paneldecontrol y de sus proyectos hermanos: baseobra(tm) y TReCC(tm) intraTReCC.
 * Este archivo es software libre: tu puedes redistriburlo 
-* y/o modificarlo bajo los términos de la "GNU General Public License" 
+* y/o modificarlo bajo los términos de la "AGNU Affero AGeneral Public License" 
 * publicada por la Free Software Foundation, version 3
 * 
 * Este archivo es distribuido por si mismo y dentro de sus proyectos 
 * con el objetivo de ser útil, eficiente, predecible y transparente
 * pero SIN NIGUNA GARANTÍA; sin siquiera la garantía implícita de
 * CAPACIDAD DE MERCANTILIZACIÓN o utilidad para un propósito particular.
-* Consulte la "GNU General Public License" para más detalles.
+* Consulte la "GNU AFFERO GENERAL PUBLIC LICENSE" para más detalles.
 * 
-* Si usted no cuenta con una copia de dicha licencia puede encontrarla aquí: <http://www.gnu.org/licenses/>.
+* Si usted no cuenta con una copia de dicha licencia puede encontrarla aquí: <https://www.gnu.org/licenses/agpl-3.0.html>.
 */
+
 
 include('./includes/encabezado.php');
 
@@ -66,6 +67,26 @@ if(mysql_error($Conec1)!=''){
 while($row=mysql_fetch_assoc($consulta)){
 	$escalas[$row['id_h_BPbuenasprac_id']][$row['id_h_CLASescalas_id']]=$row;
 }
+
+
+//cargua el tagueo de esclas
+$query="
+	SELECT *
+	FROM `sustentabilidad`.`BPclasifTemas`
+	$where
+";
+$consulta=mysql_query($query,$Conec1);
+if(mysql_error($Conec1)!=''){
+	$Log['res']='err';
+	$Log['tx'][]="error al consultar la base de datos (temas)";
+	$Log['tx'][]=mysql_error($Conec1);
+	$Log['tx'][]=$query;
+	terminar($Log);
+}
+while($row=mysql_fetch_assoc($consulta)){
+	$temas[$row['id_h_BPbuenasprac_id']][$row['id_h_CLAStemas_id']]=$row;
+}
+
 
 $query="
 	SELECT *
@@ -133,10 +154,11 @@ SELECT
 `BPbuenasprac`.`fuentepags`,
 `BPbuenasprac`.`valoracion`,
 `BPbuenasprac`.`procedimiento`,
+`BPbuenasprac`.`recorte`,
 `BPbuenasprac`.`recursos`,
 `BPbuenasprac`.`id_p_PROestrategias`
 FROM `sustentabilidad`.`BPbuenasprac`
-	$where
+	
 ";
 
 $consulta=mysql_query($query,$Conec1);
@@ -152,6 +174,7 @@ while($row=mysql_fetch_assoc($consulta)){
 	foreach($row as $k => $v){
 		$r[$k]=utf8_encode($v);	
 	}
+	$r['temas']=$temas[$row['id']];
 	$r['escala']=$escalas[$row['id']];
 	$r['fases']=$fases[$row['id']];
 	$r['tipo']=$tipos[$row['id']];

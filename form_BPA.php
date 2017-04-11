@@ -1,4 +1,30 @@
 <?php
+/**
+* form_base.php
+*
+* genera un formulario genérico para la edicion de la b ase de datos.  
+* 
+* @package    	TReCC(tm) redsustentable.
+* @subpackage 	
+* @author     	TReCC SA
+* @author     	<mario@trecc.com.ar> <trecc@trecc.com.ar>
+* @author    	www.trecc.com.ar  
+* @copyright	2015 TReCC SA
+* @license    	https://www.gnu.org/licenses/agpl-3.0.html  GNU AFFERO GENERAL PUBLIC LICENSE
+* Este archivo es parte de TReCC(tm) paneldecontrol y de sus proyectos hermanos: baseobra(tm) y TReCC(tm) intraTReCC.
+* Este archivo es software libre: tu puedes redistriburlo 
+* y/o modificarlo bajo los términos de la "AGNU Affero AGeneral Public License" 
+* publicada por la Free Software Foundation, version 3
+* 
+* Este archivo es distribuido por si mismo y dentro de sus proyectos 
+* con el objetivo de ser útil, eficiente, predecible y transparente
+* pero SIN NIGUNA GARANTÍA; sin siquiera la garantía implícita de
+* CAPACIDAD DE MERCANTILIZACIÓN o utilidad para un propósito particular.
+* Consulte la "GNU AFFERO GENERAL PUBLIC LICENSE" para más detalles.
+* 
+* Si usted no cuenta con una copia de dicha licencia puede encontrarla aquí: <https://www.gnu.org/licenses/agpl-3.0.html>.
+*/
+
 include('./includes/encabezado.php');
 include('./cons_general.php');
 ?>
@@ -32,6 +58,10 @@ include('./cons_general.php');
 	textarea{
 		width:98%;
 		height:25px;
+	}
+	button{
+		font-size: 10px;
+    	padding: 0;
 	}
 	
 	a{
@@ -84,6 +114,20 @@ include('./cons_general.php');
 			background-color:rgba(255,255,255,0.8);
 			margin-bottom:5px;
 		}
+		
+		#indicetemas{
+			display:inline-block;
+			border: 1px solid blue;
+			width: 122px;
+			height:65%;
+			vertical-align:middle;
+			overflow-y:scroll;
+			border:2px solid #08afd9;
+			border-radius:4px;
+			box-shadow: 3px 3px 2px #888888;
+			background-color:rgba(255,255,255,0.8);
+			margin-bottom:5px;
+		}		
 		#indiceclases{
 			display:inline-block;
 			border: 1px solid blue;
@@ -224,6 +268,14 @@ include('./cons_general.php');
 			height:40%;
 		}
 		
+		#indicetemas >div{
+			min-height:65px;
+			border-bottom:1px solid silver;
+		}		
+		#indicetemas input{
+			width:77px;
+		}				
+		
 		#indiceclases {
 			line-height: 15px;
 			margin-right:5px;
@@ -246,43 +298,94 @@ include('./cons_general.php');
 			background: transparent;
 			color:#08afd9;
 			border: none;
-			border-radius: 0px;
 			height: 12px;
 			padding: 0;
 			width: auto;
 		}	
 
 		#indiceclases > div > a{
-		background-color:  #ccc;
-		color:#444;
-		border-color:#444;
+			background-color:  #ccc;
+			color:#444;
+			border-color:#444;
 		}
 		
+		#indicetemas a{
+			background: #fff none repeat scroll 0 0;
+			border: 1px solid #08afd9;
+			border-radius: 5px;
+			padding: 0;
+			margin:0px;
+			margin-left:5px;
+			text-align:center;
+			background-color:  #ccc;
+			color:#444;
+			border-color:#444;
+		}	
+		
+		#indicetemas a[predominancia='1']{
+			font-weight:bolder;
+		}				
+		
+		#indicefuentes > div.portaapdf{
+		    display: block;
+		    height: 0px;
+		    overflow: visible;
+		    position: relative;
+		    width: 100%;
+		}
+		
+		#indicefuentes > div.portaapdf > a{
+		    height: 12px;
+		    padding: 0;
+		    position: absolute;
+		    right: 0;
+		    top: -1px;	
+		}
+				
+		
 		#indiceclases > div > a[marcado='no']{
-		background-color:  #fff;
-		color:#000;
-		border-color: #08afd9;
+			background-color:  #fff;
+			color:#000;
+			border-color: #08afd9;
 		}
 				
 		#indiceclases > div > a[marcado='si']{
-		background-color:  #08afd9;
-		border-color: #08afd9;
-		color:#000;
+			background-color:  #08afd9;
+			border-color: #08afd9;
+			color:#000;
 		}
 		
 		#indicefuentes > div.fuente[marcado='si']{
-		background-color:  #08afd9;
-		color:#000;
-		border-color:#000;
+			background-color:  #08afd9;
+			color:#000;
+			border-color:#000;
 		}
 		
 		#indicefuentes > div.fuente[marcado='si'] div.scan{
-		background-color:  #08afd9;
-		color:#000;
-		border-color:#000;
+			background-color:  #08afd9;
+			color:#000;
+			border-color:#000;
+		}
+		
+		#indicetemas > div#temasasociados a[marcado='si']{
+			background-color:  #08afd9;
+			color:#000;
+			border-color:#000;
+		}
+		
+		#indicetemas > div#temasasociados a[marcado='no']{
+			font-size:0px;
+			display:none;
 		}
 		
 		
+		#indicetemas > div#temasdisponibles a[marcado='no']{
+			background-color:  #fff;
+			color:#000;
+			border-color:#000;
+		}
+				
+				
 		#indiceclases > div > a[marcado='err']{
 		background-color:  red;
 		color:#000;
@@ -292,23 +395,30 @@ include('./cons_general.php');
 			font-size:12px;
 			border-top:3px solid #08afd9;
 			margin-top:3px;
-		}				
+		}			
+		
+		a.bpa[valoracion='rechazado']{
+			color:silver;
+			border-color:silver;
+		}
 	</style>
 	
 </head>
 <body>
-		<script language="javascript" type="text/javascript" src="./js/jquery/jquery-1.8.2.js"></script>
-		
-		<script language="javascript" type="text/javascript" src="./js/fuentesaBPA.js"></script>
-		<script language="javascript" type="text/javascript" src="./js/BPA.js"></script>		
+	
+<script language="javascript" type="text/javascript" src="./js/jquery/jquery-1.8.2.js"></script>
+<script language="javascript" type="text/javascript" src="./js/fuentesaBPA.js"></script>
+<script language="javascript" type="text/javascript" src="./js/BPA.js"></script>		
+
 <?php
-$Result=consultaPropEstructura();
-//echo "<pre>";print_r($Result);echo "</pre>";
-$Indice=$Result['Indice'];
-$Estrategias=$Result['Estrategias'];
-$Areas=$Result['Areas'];
-$Ambitos=$Result['Ambitos'];
-$Acciones=$Result['Acciones'];
+
+	$Result=consultaPropEstructura();
+	//echo "<pre>";print_r($Result);echo "</pre>";
+	$Indice=$Result['Indice'];
+	$Estrategias=$Result['Estrategias'];
+	$Areas=$Result['Areas'];
+	$Ambitos=$Result['Ambitos'];
+	$Acciones=$Result['Acciones'];
 
 	echo "<div id='indiceBPAs'></div>";	
 	
@@ -343,6 +453,8 @@ $Acciones=$Result['Acciones'];
 		
 		<br><label class='ta'  for='procedimiento'>procedimiento:</label><textarea id='Iprocedimiento' name='procedimiento' autocomplete='off'></textarea>
 		
+		<br><label class='ta'  for='recorte'>recorte destacado (opcional):</label><textarea id='Irecorte' name='recorte' autocomplete='off'></textarea>
+				
 		<br><label class='ta'  for='recursos'>recursos:</label><textarea id='Irecursos' name='recursos' autocomplete='off'></textarea>
 		
 		<br><label class='ta'  for='copia'>transcripción del texto</label><textarea id='Icopia' name='copia' autocomplete='off'></textarea>
@@ -350,14 +462,16 @@ $Acciones=$Result['Acciones'];
 		
 	</form>
 	";
+	echo "<div id='indicetemas'><h4>temas</h4><div id='temasasociados'>asociados</div><div id='temasdisponibles'>disponibles<input id='int' value='-nuevo tema-'><button onclick='nuevoTema(this.previousSibling.value);'>+</div></div>";	
 	echo "<div id='indiceclases'></div>";	
 	echo "<div id='indicefuentes'></div>";
 	echo "<div id='navegafuentes'><div id='contenedorhojas'></div></div>";
 	echo "<div id='navegaHojas'><div id='botonera'><a id='Bcerrar' lass='cerrar' onclick='cerrar(this);'>cerrar</a><a class='ant' onclick='anterior(this);'>ant. '<' </a><a class='sig'  onclick='siguiente(this);'>sig. '>' </a></div><div id='verHoja'></div></div>";		
 ?>
 
-    <script type="text/javascript">     
-    
+   <script type="text/javascript">    
+   
+    	var _idBPA='';
     	var _statusROJO=0;
     	   
  		$('#formularioBPA select').change(function() { 			
@@ -375,11 +489,9 @@ $Acciones=$Result['Acciones'];
 				}
 			}
 		});
-					
-    
-    
-		window.scrollTo(0,'<?php echo $_GET['y'];?>');     
-    </script>
+		window.scrollTo(0,'<?php echo $_GET['y'];?>');  
+		  
+   </script>
     
    <script type="text/javascript">        
        cargarFuentes();//en js/fuentes.js
@@ -387,14 +499,17 @@ $Acciones=$Result['Acciones'];
 	   var _ClasesCargadas='no' // la función cargar clases modifica esta variable al terminar.
 	   var _DataBPAs=Array(); // esta variable se completa con la función cargarBPAs.
 	   cargarClases();// en /js/BPA.js
-   
-       
+
+		
+		
 		function checkVariable() {
-		   if(_ClasesCargadas=='si'){
-		      cargarBPAs(); 
-		   }
+			console.log('checando');
+			   if(_ClasesCargadas=='si'){
+			   	clearInterval(myVar);
+			     cargarBPAs(); 
+			   }
 		}
-		setTimeout(checkVariable,200);
+		var myVar = setInterval(checkVariable,200);		
           
        var _estadodecarga='inactivo';
        _contO=document.getElementById('navegafuentes');
@@ -426,18 +541,22 @@ $Acciones=$Result['Acciones'];
 						if(_res.res=='exito'){
 							if(_Acc=='crear'){
 								if(_res.data.nid!='NA'){
-									cargarFuentes(_res.data.nid);
+									//cargarFuentes(_res.data.nid);
+									cargarBPAs(_res.data.nid);
 								}
 							}else if(_Acc=='guardar'){
 								if(_res.data.id!='NA'){
-									actualizarFuentes(_res.data.id);
+									//actualizarFuentes(_res.data.id);
+									cargarBPAs(_res.data.id);
 								}
 							}else if(_Acc=='confirmar'){
 								if(_res.data.id!='NA'){
-									descargarFuentes(_res.data.id);
+									//descargarFuentes(_res.data.id);
+									cargarBPAs(_res.data.id);
 								}
 							}
 						vaciarFormulario();	
+						
 						}
 				});				
           }
@@ -470,7 +589,7 @@ $Acciones=$Result['Acciones'];
           			if(typeof _desel[_nn] == 'object'){
           				_desel[_nn].removeAttribute('marcado');
           			}else{
-          				console.log(typeof _desel[_nn]);
+          				//console.log(typeof _desel[_nn]);
           			}
           		}                  		
           }     
@@ -481,7 +600,7 @@ $Acciones=$Result['Acciones'];
           			if(typeof _desel[_nn] == 'object'){
           				_desel[_nn].removeAttribute('estado');
           			}else{
-          				console.log(typeof _desel[_nn]);
+          				//console.log(typeof _desel[_nn]);
           			}
           		}
           		
@@ -490,7 +609,7 @@ $Acciones=$Result['Acciones'];
           			if(typeof _desel[_nn] == 'object'){
           				_desel[_nn].removeAttribute('estado');
           			}else{
-          				console.log(typeof _desel[_nn]);
+          				//console.log(typeof _desel[_nn]);
           			}
           		}
           		
@@ -533,6 +652,28 @@ $Acciones=$Result['Acciones'];
           });
           
           
+          function nuevoTema(_txtema){
+          	
+          		var parametros = {
+					tabla : 'CLAStemas',
+					nombre : _txtema
+				};
+				
+          		$.ajax({
+					data:  parametros,
+					url:   'ed_creaclase_ajax.php',
+					type:  'post',
+					success:  function (response){
+						var _res = $.parseJSON(response);
+						console.log(_res);							
+						if(_res.res=='exito'){
+							console.log('exito');
+						}
+					}
+				})
+          }
+          	
+          	
           function tagToggle(_this){
           		var _this = _this;
               	_est=_this.getAttribute('marcado');
