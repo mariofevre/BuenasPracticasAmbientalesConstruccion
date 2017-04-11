@@ -1,3 +1,31 @@
+/**
+* fuentesaBPA.js
+*
+* funciones para llamar datos de Fuentes Bibliográficas y representarlos en fichas de BPA  
+* 
+* @package    	TReCC(tm) redsustentable.
+* @subpackage 	
+* @author     	TReCC SA
+* @author     	<mario@trecc.com.ar> <trecc@trecc.com.ar>
+* @author    	www.trecc.com.ar  
+* @copyright	2015 TReCC SA
+* @license    	https://www.gnu.org/licenses/agpl-3.0.html  GNU AFFERO GENERAL PUBLIC LICENSE
+* Este archivo es parte de TReCC(tm) paneldecontrol y de sus proyectos hermanos: baseobra(tm) y TReCC(tm) intraTReCC.
+* Este archivo es software libre: tu puedes redistriburlo 
+* y/o modificarlo bajo los términos de la "AGNU Affero AGeneral Public License" 
+* publicada por la Free Software Foundation, version 3
+* 
+* Este archivo es distribuido por si mismo y dentro de sus proyectos 
+* con el objetivo de ser útil, eficiente, predecible y transparente
+* pero SIN NIGUNA GARANTÍA; sin siquiera la garantía implícita de
+* CAPACIDAD DE MERCANTILIZACIÓN o utilidad para un propósito particular.
+* Consulte la "GNU AFFERO GENERAL PUBLIC LICENSE" para más detalles.
+* 
+* Si usted no cuenta con una copia de dicha licencia puede encontrarla aquí: <https://www.gnu.org/licenses/agpl-3.0.html>.
+*/
+
+
+
 var Fcursando='no';
 
 function asignar(_this){
@@ -5,7 +33,7 @@ function asignar(_this){
 
 	_desel=document.getElementById('indicefuentes').querySelectorAll('.fuente');
 	for(_nn in _desel){
-		console.log(typeof _desel[_nn]);
+		//console.log(typeof _desel[_nn]);
 		if(typeof _desel[_nn]=='object'){
 		_desel[_nn].removeAttribute('marcado');
 		}
@@ -69,16 +97,16 @@ function navegar(_this,_Npag){
 	
 	_carpetaLD="./documentos/fuentes/imagen/"+_idstr+"/";
 	
-	console.log('np:'+_Npag);
+	//console.log('np:'+_Npag);
 	if(_Npag!=undefined&&_Npag!=0){
 		_i=_Npag;	
 	}else{
 		_i=1;
 	}
 	_Ip=parseInt(_i)+15;
-	console.log('i:'+_i);
+	//console.log('i:'+_i);
 	_max=Math.min(_pags,_Ip);
-	console.log('i:'+_Ip);
+	//console.log('i:'+_Ip);
 	
 	_tabla=document.getElementById('contenedorhojas');
 	_tabla.setAttribute('fuenteId',_id);	
@@ -86,7 +114,7 @@ function navegar(_this,_Npag){
 	if(_Npag==undefined){
 		_tabla.innerHTML='';
 	}
-	console.log('max:'+_max);
+	//console.log('max:'+_max);
   	for(i=_i;i<=_max;i++){  		
   		_tr=document.createElement('div');
 		_tr.setAttribute('class','hoja');
@@ -134,7 +162,28 @@ function cargarFuentes(_id){
 				for(i=0;i<_res.data.fuentes.length;i++){
 					
 					if(_res.data.fuentes[i].zz_borrada!='1'){
-						_navOk='si';					
+						_navOk='si';
+						
+						_apdf=document.createElement('a');
+						_pathbase='./documentos/fuentes/originales/';
+						
+						_faltan=5-_res.data.fuentes[i]['id'].length;
+						_idst=_res.data.fuentes[i]['id'];
+						for(h=0;h<_faltan;h++){
+							//console.log('maisum');
+							_idst="0"+_idst;
+						}
+						_href=_pathbase+_idst+'.pdf';						
+						_apdf.setAttribute('href',_href);
+						_apdf.setAttribute('download','');
+						_apdf.innerHTML='pdf'
+						
+						_divpdf=document.createElement('div');
+						_divpdf.appendChild(_apdf);
+						_divpdf.setAttribute('class','portaapdf')
+						_tabla.appendChild(_divpdf);
+						
+											
 						_tr=document.createElement('div');
 						_tr.setAttribute('class','fuente');
 						_tr.setAttribute('idreg',_res.data.fuentes[i].id);
@@ -153,9 +202,7 @@ function cargarFuentes(_id){
 											
 						_td=document.createElement('div');
 						_td.setAttribute('class','scan');
-						
-						
-						
+												
 						
 						$split=_res.data.fuentes[i]['zz_escaneado'].split("_");
 						_tr.setAttribute('pags',$split[1]);
@@ -195,7 +242,7 @@ function cargarFuentes(_id){
 						_faltan=5-_res.data.fuentes[i]['id'].length;
 						_idst=_res.data.fuentes[i]['id'];
 						for(h=0;h<_faltan;h++){
-							console.log('maisum');
+							//console.log('maisum');
 							_idst="0"+_idst;
 						}
 						_img.src=_pathbase+_idst+'/_0001.jpg';
