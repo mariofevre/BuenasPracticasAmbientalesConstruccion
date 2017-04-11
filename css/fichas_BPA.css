@@ -1,0 +1,490 @@
+/**
+* fichas_BPA.css
+*
+* estilo de fichas  
+* 
+* @package    	TReCC(tm) redsustentable.
+* @subpackage 	
+* @author     	TReCC SA
+* @author     	<mario@trecc.com.ar> <trecc@trecc.com.ar>
+* @author    	www.trecc.com.ar  
+* @copyright	2015 TReCC SA
+* @license    	https://www.gnu.org/licenses/agpl-3.0.html  GNU AFFERO GENERAL PUBLIC LICENSE
+* Este archivo es parte de TReCC(tm) paneldecontrol y de sus proyectos hermanos: baseobra(tm) y TReCC(tm) intraTReCC.
+* Este archivo es software libre: tu puedes redistriburlo 
+* y/o modificarlo bajo los términos de la "AGNU Affero AGeneral Public License" 
+* publicada por la Free Software Foundation, version 3
+* 
+* Este archivo es distribuido por si mismo y dentro de sus proyectos 
+* con el objetivo de ser útil, eficiente, predecible y transparente
+* pero SIN NIGUNA GARANTÍA; sin siquiera la garantía implícita de
+* CAPACIDAD DE MERCANTILIZACIÓN o utilidad para un propósito particular.
+* Consulte la "GNU AFFERO GENERAL PUBLIC LICENSE" para más detalles.
+* 
+* Si usted no cuenta con una copia de dicha licencia puede encontrarla aquí: <https://www.gnu.org/licenses/agpl-3.0.html>.
+*/
+
+
+@font-face {
+  font-family: 'Lato regular';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./Lato-Regular.woff') format('woff'), local('Lato regular'), local('Lato regular');
+}
+
+@font-face {
+  font-family: 'Lato bold';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./Lato-Bold.woff') format('woff'), local('Lato regular'), local('Lato regular');
+}
+
+
+html, body {
+	    vertical-align:middle;
+	    font-family: 'Lato regular';
+	    font-size:12px;
+	    background-image:none;
+	}
+	label{
+		font-size:12px;
+		display:inline-block;
+		width:50px;
+		text-align:right;
+	}
+	
+	label.ta{
+		width:170px;
+		text-align:left;
+	}	
+	input,select{
+		width:150px;
+	}
+	textarea{
+		width:98%;
+		height:25px;
+	}
+	
+
+	a{
+		font-size:12px;
+		background: #fff none repeat scroll 0 0;
+	    border: 1px solid #08afd9;
+	    border-radius: 5px;
+	    margin: 0 0 0 5px;
+	    padding: 2px;
+	    text-align: center;
+    }
+    
+	a[estado='formulado']{
+		background-color:  #08afd9;
+    }
+    
+  	input[estado='cambiante'], textarea[estado='cambiante'], select[estado='cambiante']{
+		background-color:  #fbb;
+		color:red;
+    }  
+   	textarea[estado='cambiante']{
+		background-color:  #fbb;
+		color:red;
+    }  
+       
+		#formularioBPA{
+			margin:0;
+			display:inline-block;
+			border: 1px solid blue;
+			width:700px;
+			height:65%;
+			vertical-align:middle;
+			border:2px solid #08afd9;
+			border-radius:4px;
+			box-shadow: 3px 3px 2px #888888;
+			background-color:rgba(255,255,255,0.8);
+			margin-bottom:5px;
+			overflow-y:scroll;
+		}
+		#indicefuentes{
+			display:inline-block;
+			border: 1px solid blue;
+			width: 220px;
+			height:65%;
+			vertical-align:middle;
+			overflow-y:scroll;
+			border:2px solid #08afd9;
+			border-radius:4px;
+			box-shadow: 3px 3px 2px #888888;
+			background-color:rgba(255,255,255,0.8);
+			margin-bottom:5px;
+		}
+		#indiceclases{
+			display:inline-block;
+			border: 1px solid blue;
+			width: 122px;
+			height:65%;
+			vertical-align:middle;
+			overflow-y:scroll;
+			border:2px solid #08afd9;
+			border-radius:4px;
+			box-shadow: 3px 3px 2px #888888;
+			background-color:rgba(255,255,255,0.8);
+			margin-bottom:5px;
+		}		
+		#indiceBPAs{
+			display:none;
+			width:20%;
+			height:65%;
+			vertical-align:middle;
+			overflow-y:scroll;
+			border:2px solid #08afd9;
+			border-radius:4px;
+			box-shadow: 3px 3px 2px #888888;
+			background-color:rgba(255,255,255,0.8);
+			margin-bottom:5px;
+		}
+		
+		#navegafuentes{
+			vertical-align:middle;
+			display:inline-block;
+			border: 1px solid blue;
+			width:95%;
+			height:30%;
+			overflow-x:scroll;
+			border:2px solid #08afd9;
+			border-radius:4px;
+			box-shadow: 3px 3px 2px #888888;
+			background-color:rgba(255,255,255,0.8);
+		}
+		
+		#contenedorhojas{
+			white-space: nowrap;
+			display:inline-block;
+			width:auto;
+			height:98%;
+		}
+				
+		.fuente{
+			border-bottom:1px solid  #08afd9;
+		}
+		
+		.nombre{
+			font-size:14px;
+			display:inline-block;
+			width:85%;
+		}		
+		
+		.scan{
+			border: 1px solid silver;
+			display:inline-block;
+			width:50px;
+			font-size:11px;
+			width:45px;
+			overflow:hidden;
+		}
+		
+		.scan>a {
+		    background-color: #08afd9;
+		    color: #000;
+		    font-size: 10px;
+		    margin: 1px;
+		    padding: 0;
+		}
+		div.nombre:hover{
+			background-color:lightblue;
+		}
+		div.hoja{
+			
+			position:relative;
+			height:100%;
+			display:inline-block;
+			margin-right:5px;
+		}
+		div.hoja>img{
+			height:100%;
+		}
+		.refNumP{
+			position:absolute;
+			top:2px;
+			left:5px;
+			font-size:11px;
+		}
+		
+		.fuente .nombre{
+			width:150px;
+			height:60px;
+			display:inline-block;
+			overflow:hidden;
+		}
+		.fuente .scan img{
+			height:60px;
+		}
+		#Icopia{
+			height:40%;
+		}
+		
+		#indiceclases {
+			line-height: 15px;
+			margin-right:5px;
+		}
+		
+		#indiceclases a{
+			background: #fff none repeat scroll 0 0;
+			border: 1px solid #08afd9;
+			border-radius: 5px;
+			height: 12px;
+			padding: 0;
+			margin:0px;
+			margin-left:5px;
+			width: 98px;
+			text-align:center;
+			font-size:10px;
+		}
+		
+		#indiceclases a.anade{
+			background: transparent;
+			color:#08afd9;
+			border: none;
+			border-radius: 0px;
+			height: 12px;
+			padding: 0;
+			width: auto;
+		}	
+
+		#indiceclases > div > a{
+		background-color:  #ccc;
+		color:#444;
+		border-color:#444;
+		}
+		
+		#indiceclases > div > a[marcado='no']{
+		background-color:  #fff;
+		color:#000;
+		border-color: #08afd9;
+		}
+				
+		#indiceclases > div > a[marcado='si']{
+		background-color:  #08afd9;
+		border-color: #08afd9;
+		color:#000;
+		}
+		
+		#indicefuentes > div.fuente[marcado='si']{
+		background-color:  #08afd9;
+		color:#000;
+		border-color:#000;
+		}
+		
+		#indicefuentes > div.fuente[marcado='si'] div.scan{
+		background-color:  #08afd9;
+		color:#000;
+		border-color:#000;
+		}
+		
+		
+		#indiceclases > div > a[marcado='err']{
+		background-color:  red;
+		color:#000;
+		}
+				
+		#indiceclases .titulo{
+			font-size:12px;
+			border-top:3px solid #08afd9;
+			margin-top:3px;
+		}
+		
+div.ficha{
+	display:inline-block;
+	width:590px;
+	height:692px;
+	background-color:#fff;
+	color:#000;
+	border: 3px solid #0ad;
+	margin:10px;
+	
+}
+
+	div.ficha{
+		page-break-after: always;
+	}
+
+@media print{
+	div.ficha{
+		page-break-after: always;
+	}
+}
+
+div.ficha div{
+	margin:4px;
+}
+
+
+div.ficha[valoracion='rechazado']{
+	background-color:#eaa;
+	display:none;
+}
+div.ficha[valoracion='rechazado'] div{
+	border: 1px solid #999;
+	margin:4px;
+	color:#222;
+}
+
+
+.columna{
+	display:inline-block;
+	width:285px;
+	height:690px;
+	vertical-align:top;
+}
+
+div#tags > div{
+	display:inline-block;
+	width:100px;
+	margin:2px;
+	margin-left:18px;
+	margin-right:18px;
+}
+
+div.ficha{
+	padding:4px;
+}
+
+div.ficha div.columna{
+	margin:0px;
+}
+
+div.ficha #columnaM{
+	border-left: 3px solid #0ad;
+	width:1px;
+	margin:2px;
+}
+
+
+div.ficha div#id{
+	font-size:30px;
+    background-color: #0ad;
+    color: #fff;
+    font-family: 'Lato bold';
+    margin-left: 30px;
+    padding: 0px 10px 0px 3px;
+    text-shadow: 2px 2px 2px #000;
+    width: 70px;
+    letter-spacing: 2px;	
+}
+
+div.ficha #nombre{
+    background-color: #0ad;
+    color: #fff;
+    font-size: 22px;
+    font-family: 'Lato bold';
+    margin: 0;
+    padding: 5px 10px 5px 3px;
+    text-shadow: 2px 2px 2px #000;
+    width: 274px;
+}
+
+div.ficha #procedimiento{
+	font-size:11px;
+	text-align:justify;
+}
+div.ficha #recursos{
+	font-size:10px;
+	text-indent: 10px;
+	margin:15px;
+	margin-top:22px;
+	margin-bottom:22px;
+	padding:4px;
+	border:1px solid #000;
+	border-radius:5px;
+}
+
+div.ficha#fmodelo{
+	display:none;
+}
+
+
+div.ficha #transcripcion{
+	font-size:8px;
+	font-style:italic;
+}
+div.ficha .aclara{
+	font-size:9px;
+	background-color: #48b;
+	color: #fff;
+	font-family: 'Lato bold';
+	padding-left:20px;
+	padding-right:20px;
+	padding-top:5px;
+	padding-bottom:5px;
+	margin-left:0px;
+	margin-right:0px;
+	box-shadow:2px 2px 2px #000;
+}
+
+
+div.ficha div#tags > div > div.titulito{
+	font-size:8px;
+	font-family: 'Lato bold';
+	margin:0;	
+}
+div.ficha div#tags > div > div{
+	font-size:7px;
+	margin:0;
+	border:none;
+	border-bottom:1px solid #000;	
+}
+div.ficha div#tags > div{
+	vertical-align:top;
+	
+}
+
+div.ficha #procedimiento{
+	
+	font-size:10px;
+}
+
+div.ficha #procedimiento p{
+	margin-top:2px;
+	font-size:inherit;
+    text-indent: 10px;
+}
+
+div.ficha #fuente{
+	margin-left:20px;
+	font-size:10px;
+	
+	vertical-align:top;
+	text-align:right;
+	display:inline-block;
+	width:50%;
+}
+div.ficha #tapa{
+	text-align:center;
+	vertical-align:top;
+	display:inline-block;
+	width:30%;
+	box-shadow:2px 2px 2px #000;
+}
+div.ficha img{
+	max-width: 100%;
+}
+div.ficha #pagina {
+	margin-left:50px;
+	margin-right:50px;
+	text-align:center;
+	box-shadow:2px 2px 2px #000;
+	width:auto;
+}
+
+div.ficha #pagina img{
+	max-width: 50%;
+}
+
+div#cuadro{
+	background-color: #0ad;
+	color: #fff;
+	margin-left:40px;
+	margin-top:20px;
+	margin-bottom:20px;
+	width:180px;
+	padding:10px;
+	font-size:15px;
+}

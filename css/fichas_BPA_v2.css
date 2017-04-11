@@ -1,0 +1,621 @@
+/*fichas_BPA_v2.css
+*
+* estilo de fichas V2  
+* 
+* @package    	TReCC(tm) redsustentable.
+* @subpackage 	
+* @author     	TReCC SA
+* @author     	<mario@trecc.com.ar> <trecc@trecc.com.ar>
+* @author    	www.trecc.com.ar  
+* @copyright	2015 TReCC SA
+* @license    	https://www.gnu.org/licenses/agpl-3.0.html  GNU AFFERO GENERAL PUBLIC LICENSE
+* Este archivo es parte de TReCC(tm) paneldecontrol y de sus proyectos hermanos: baseobra(tm) y TReCC(tm) intraTReCC.
+* Este archivo es software libre: tu puedes redistriburlo 
+* y/o modificarlo bajo los términos de la "AGNU Affero AGeneral Public License" 
+* publicada por la Free Software Foundation, version 3
+* 
+* Este archivo es distribuido por si mismo y dentro de sus proyectos 
+* con el objetivo de ser útil, eficiente, predecible y transparente
+* pero SIN NIGUNA GARANTÍA; sin siquiera la garantía implícita de
+* CAPACIDAD DE MERCANTILIZACIÓN o utilidad para un propósito particular.
+* Consulte la "GNU AFFERO GENERAL PUBLIC LICENSE" para más detalles.
+* 
+* Si usted no cuenta con una copia de dicha licencia puede encontrarla aquí: <https://www.gnu.org/licenses/agpl-3.0.html>.
+*/
+
+
+@font-face {
+  font-family: 'Lato regular';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./Lato-Regular.woff') format('woff'), local('Lato regular'), local('Lato regular');
+}
+
+@font-face {
+  font-family: 'Lato bold';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./Lato-Bold.woff') format('woff'), local('Lato regular'), local('Lato regular');
+}
+
+
+html, body {
+    vertical-align:middle;
+    font-family: 'Helvetica Condensed';
+    font-size:12px;
+    background-image:none;
+}
+label{
+	font-size:12px;
+	display:inline-block;
+	width:50px;
+	text-align:right;
+}
+
+label.ta{
+	width:170px;
+	text-align:left;
+}	
+input,select{
+	width:150px;
+}
+textarea{
+	width:98%;
+	height:25px;
+}
+
+#indiceBPAs{
+	padding:0px;
+}
+
+#indiceBPAs h1{
+	padding-top:15px;
+	margin-left:30px;
+}
+
+#indiceBPAs a{
+	display:block;
+	background-color:transparent;	
+	font-size:13px;
+	padding:0px;
+	padding-left:10px;
+	margin-top:3px;
+	margin-left:30px;
+	margin-right:30px;
+}
+
+#indiceBPAs a.categoria{
+	margin-left:30px;
+	display:block;
+	background-color:transparent;	
+	font-size:14px;
+	padding-left:5px;
+	font-weight:bold;
+	border-bottom:1px solid  #0092D3;
+	margin-top:8px;
+}
+
+input[estado='cambiante'], textarea[estado='cambiante'], select[estado='cambiante']{
+	background-color:  #fbb;
+	color:red;
+}  
+textarea[estado='cambiante']{
+	background-color:  #fbb;
+	color:red;
+}  
+       
+		#formularioBPA{
+			margin:0;
+			display:inline-block;
+			border: 1px solid blue;
+			width:700px;
+			height:65%;
+			vertical-align:middle;
+			border:2px solid #08afd9;
+			border-radius:4px;
+			box-shadow: 3px 3px 2px #888888;
+			background-color:rgba(255,255,255,0.8);
+			margin-bottom:5px;
+			overflow-y:scroll;
+		}
+		#indicefuentes{
+			display:inline-block;
+			border: 1px solid blue;
+			width: 220px;
+			height:65%;
+			vertical-align:middle;
+			overflow-y:scroll;
+			border:2px solid #08afd9;
+			border-radius:4px;
+			box-shadow: 3px 3px 2px #888888;
+			background-color:rgba(255,255,255,0.8);
+			margin-bottom:5px;
+		}
+		#indiceclases{
+			display:inline-block;
+			border: 1px solid blue;
+			width: 122px;
+			height:65%;
+			vertical-align:middle;
+			overflow-y:scroll;
+			border:2px solid #08afd9;
+			border-radius:4px;
+			box-shadow: 3px 3px 2px #888888;
+			background-color:rgba(255,255,255,0.8);
+			margin-bottom:5px;
+		}		
+		#indiceBPAs{
+
+		}
+		
+		#navegafuentes{
+			vertical-align:middle;
+			display:inline-block;
+			border: 1px solid blue;
+			width:95%;
+			height:30%;
+			overflow-x:scroll;
+			border:2px solid #08afd9;
+			border-radius:4px;
+			box-shadow: 3px 3px 2px #888888;
+			background-color:rgba(255,255,255,0.8);
+		}
+		
+		#contenedorhojas{
+			white-space: nowrap;
+			display:inline-block;
+			width:auto;
+			height:98%;
+		}
+				
+		.fuente{
+			border-bottom:1px solid  #08afd9;
+		}
+		
+		.nombre{
+			font-size:14px;
+			display:inline-block;
+			width:85%;
+		}		
+		
+		.scan{
+			border: 1px solid silver;
+			display:inline-block;
+			width:50px;
+			font-size:11px;
+			width:45px;
+			overflow:hidden;
+		}
+		
+		.scan>a {
+		    background-color: #08afd9;
+		    color: #5b5b5f;
+		    font-size: 10px;
+		    margin: 1px;
+		    padding: 0;
+		}
+		div.nombre:hover{
+			background-color:lightblue;
+		}
+		div.hoja{
+			
+			position:relative;
+			height:100%;
+			display:inline-block;
+			margin-right:5px;
+		}
+		div.hoja>img{
+			height:100%;
+		}
+		.refNumP{
+			position:absolute;
+			top:2px;
+			left:5px;
+			font-size:11px;
+		}
+		
+		.fuente .nombre{
+			width:150px;
+			height:60px;
+			display:inline-block;
+			overflow:hidden;
+		}
+		.fuente .scan img{
+			height:60px;
+		}
+		#Icopia{
+			height:40%;
+		}
+		
+		#indiceclases {
+			line-height: 15px;
+			margin-right:5px;
+		}
+		
+		#indiceclases a{
+			background: #fff none repeat scroll 0 0;
+			border: 1px solid #08afd9;
+			border-radius: 5px;
+			height: 12px;
+			padding: 0;
+			margin:0px;
+			margin-left:5px;
+			width: 98px;
+			text-align:center;
+			font-size:10px;
+		}
+		
+		#indiceclases a.anade{
+			background: transparent;
+			color:#08afd9;
+			border: none;
+			border-radius: 0px;
+			height: 12px;
+			padding: 0;
+			width: auto;
+		}	
+
+		#indiceclases > div > a{
+		background-color:  #ccc;
+		color:#444;
+		border-color:#444;
+		}
+		
+		#indiceclases > div > a[marcado='no']{
+		background-color:  #fff;
+		color:#5b5b5f;
+		border-color: #08afd9;
+		}
+				
+		#indiceclases > div > a[marcado='si']{
+		background-color:  #08afd9;
+		border-color: #08afd9;
+		color:#5b5b5f;
+		}
+		
+		#indicefuentes > div.fuente[marcado='si']{
+		background-color:  #08afd9;
+		color:#5b5b5f;
+		border-color:#5b5b5f;
+		}
+		
+		#indicefuentes > div.fuente[marcado='si'] div.scan{
+		background-color:  #08afd9;
+		color:#5b5b5f;
+		border-color:#5b5b5f;
+		}
+		
+		
+		#indiceclases > div > a[marcado='err']{
+		background-color:  red;
+		color:#5b5b5f;
+		}
+				
+		#indiceclases .titulo{
+			font-size:12px;
+			border-top:3px solid #08afd9;
+			margin-top:3px;
+		}
+	
+	h1{
+			page-break-after: always;
+	}	
+				
+div.ficha, div.contraficha{
+	display:inline-block;
+	width:498px;
+	height:700px;
+	background-color:#fff;
+	color:#5b5b5f;
+	border: 0px solid #0ad;
+	margin:0px;
+	padding:0px;
+	position:relative;
+	vertical-align: top;
+}
+
+div.contraficha img{
+	width:100%;
+}
+
+@media print{
+	div.ficha{
+
+	}
+}
+
+div.ficha div{
+	margin:0px;
+}
+
+
+div.ficha div#id-nombre{
+	background-color:rgba(91,91,95,1);
+	position:relative;
+	min-height:81px;
+}
+
+div.ficha div#id{
+	display:none;		
+	font-size:32px;
+	line-height:33px;
+	font-weight:bold;
+    background-color: transparent;
+    color: #fff;
+    letter-spacing: 0px;
+    text-align:right;
+    padding: 17px 17px 0px 3px;
+    width: 70px;
+    position:absolute;
+    right:0px;
+    top:0px;
+}
+
+div.ficha #nombre{
+    background-color: transparent;
+    font-weight:bold;
+    color: #fff;
+    font-size: 23px;
+    line-height: 25px;
+    margin: 0;
+    padding: 17px 17px 14px;
+    width: 210px;
+    position:absolute;
+    left:0px;
+    top:0px;
+}
+
+
+div.ficha #categoria{
+    background-color: transparent;
+    font-weight:bold;
+    color: #fff;
+    text-align:right;
+    font-size: 16px;
+    line-height: 18px;
+    margin: 0;
+    padding: 17px 17px 14px 17px;
+    width: 130px;
+    position:absolute;
+    right:0px;
+    top:0px;
+}
+
+
+div.ficha #descripcion{
+    background-color: transparent;
+    color: #0092D3;
+    font-size: 13px;
+    line-height:20px;
+    margin:0px;
+    padding:7px 17px;
+    display:block;`
+    position:relative;
+    height:41px;
+}
+		
+		
+div.ficha[valoracion='rechazado']{
+	background-color:#eaa;
+	display:none;
+}
+div.ficha[valoracion='rechazado'] div{
+	border: 1px solid #999;
+	margin:4px;
+	color:#222;
+}
+
+
+.columna{
+	display:inline-block;
+	width:249px;
+	vertical-align:top;
+	margin:0px;
+}
+
+div#tags {
+	padding-left:10px;
+}
+
+
+div#tags > div{
+	display:inline-block;
+	width:100px;
+	margin:2px;
+	margin-left:7px;
+	margin-right:7px;
+}
+
+
+
+div.ficha #columnaM{
+	border-left: 3px solid #0ad;
+	width:1px;
+	margin:2px;
+}
+
+
+div.ficha #procedimiento{
+	font-size:10px;
+	text-align:justify;
+}
+div.ficha #recursos{
+	font-size:12px;	
+	margin:0;
+	margin-top:8px;
+	padding:0;
+	border:0;
+	min-height:69px;
+}
+
+div.ficha #recursos p{
+	color: #0092D3;
+	margin-left:20px;
+	margin-right:30px; 
+}
+
+div.ficha #fuenteg{
+	font-size:12px;	
+	margin:0px;
+	padding:0;
+	border:0;
+}
+
+div.ficha #fuente{
+	min-height:59px;
+	max-height:61px;
+}
+
+div.ficha#fmodelo{
+	display:none;
+}
+
+
+div.ficha #transcripcion{
+	font-size:8px;
+	font-style:italic;
+		border-top:1px solid #5b5b5f;
+	color: rgb(91,91,95);
+	margin-left:20px;
+	margin-right:30px;
+	margin-top:0px;
+}
+div.ficha .aclara{
+	font-size:13px;
+	font-weight:bold;
+	background-color: #48b;
+	color: #fff;
+	padding-left:20px;
+	padding-right:20px;
+	padding-top:8px;
+	padding-bottom:0px;
+	margin-left:0px;
+	margin-right:0px;
+	height:26px;
+}
+
+div#bloque2 .aclara{
+	height:40px;
+}
+div.ficha #columna1 .aclara{
+	background-color: #0092D3;	
+	color:rgba(91,91,95,1);
+
+}
+div.ficha #columna2 .aclara{
+	background-color: rgba(92,92,96,0.502);	
+	color:#5b5b5f;
+}
+
+div.ficha #tags{
+	margin-top:8px;
+}
+
+div.ficha #tags > div{
+	min-height:100px;
+	background-color:transparent;
+	position:relative;
+}
+
+div.ficha div#tags > div#escalas, div.ficha div#tags > div#medios{
+	width:80px;
+}
+div.ficha div#tags > div#fases, div.ficha div#tags > div#tipos{
+	width:120px;
+	
+}
+
+
+div.ficha #tags > div img{
+	max-width: 80px;
+	position:absolute;
+	z-index:1;
+}
+
+div.ficha div#tags > div#fases img, div.ficha div#tags > div#tipos img{
+	left:22px;
+}
+
+
+div.ficha div#tags > div > div.titulito{
+	font-size: 13px;
+    font-weight: bold;
+    color: rgba(91, 91, 95, 1);
+	margin:0;
+	margin-top:10px;	
+}
+
+
+
+div.ficha div#tags > div > div{
+	font-size: 11px;
+    color: rgba(91, 91, 95, 1);
+	margin:0;
+	border:none;
+	border-bottom:1px solid #5b5b5f;
+	background-color:transparent;	
+	z-index:2;
+	position:relative;
+}
+div.ficha div#tags > div{
+	vertical-align:top;
+	
+}
+
+div.ficha #procedimiento{
+	margin-top:8px;
+	min-height:279px;
+	font-size:10px;
+	
+}
+
+div.ficha #procedimiento p{
+	margin-top:2px;
+	margin-left:17px;
+	margin-right:17px;
+	font-size:inherit;
+    text-indent: 0px;
+    text-align:left;
+}
+
+div.ficha #fuente{
+
+}
+
+div.ficha #fuenteg p{
+	margin-top:8px;
+	margin-left:17px;
+	margin-right:17px;
+	font-size:inherit;
+    text-indent: 0px;
+}
+
+div.ficha #tapa{
+	text-align:center;
+	vertical-align:top;
+	display:inline-block;
+	width:30%;
+	box-shadow:2px 2px 2px #5b5b5f;
+}
+
+div.ficha #pagina {
+	margin-left:50px;
+	margin-right:50px;
+	text-align:center;
+	box-shadow:2px 2px 2px #5b5b5f;
+	width:auto;
+}
+
+div.ficha #pagina img{
+	max-width: 50%;
+}
+
+div#cuadro{
+	border-top:1px solid #5b5b5f;
+	color: rgb(91,91,95);
+	margin-left:20px;
+	margin-right:30px;
+	margin-top:0px;
+	
+	font-size:12px;
+}
